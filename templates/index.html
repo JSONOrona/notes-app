@@ -7,8 +7,9 @@
     <title>Super Notes App</title>
 </head>
 <body>
-    <h1>Notes App</h1>
+    <h1>Super Notes App</h1>
     <form id="note-form">
+        <img src="{{ url_for('static', filename='cat.jpg') }}" alt="Super Notes App Logo">
         <input type="text" id="note-content" placeholder="Enter your note">
         <button type="submit">Add Note</button>
     </form>
