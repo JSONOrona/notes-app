@@ -4,16 +4,100 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto 20px;
+            display: block;
+            border-radius: 5px;
+        }
+
+        form {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        #note-content {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+
+        #note-content:focus {
+            outline: none;
+        }
+
+        #note-content::placeholder {
+            color: #aaa;
+        }
+
+        #note-content[type="text"] {
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        li {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
     <title>Super Notes App</title>
 </head>
 <body>
-    <h1>Super Notes App</h1>
-    <form id="note-form">
+    <div class="container">
+        <h1>Super Notes App</h1>
         <img src="{{ url_for('static', filename='cat.jpg') }}" alt="Super Notes App Logo">
-        <input type="text" id="note-content" placeholder="Enter your note">
-        <button type="submit">Add Note</button>
-    </form>
-    <ul id="notes-list"></ul>
+        <form id="note-form">
+            <input type="text" id="note-content" placeholder="Enter your note">
+            <button type="submit">Add Note</button>
+        </form>
+        <ul id="notes-list"></ul>
+    </div>
 
     <script>
         const notesList = document.getElementById('notes-list');
